@@ -1,0 +1,197 @@
+@import "../../brand/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--mf-surface);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--mf-surface);
+  color: var(--mf-ink);
+  font-family: var(--mf-font-sans);
+  font-size: var(--mf-font-size-chrome);
+  font-weight: var(--mf-weight);
+  line-height: 1.5;
+}
+
+::selection {
+  background: var(--mf-selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--mf-accent);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  transform: translateY(-120%);
+  background: var(--mf-surface-raised);
+  color: var(--mf-ink);
+  padding: 0.4rem 0.7rem;
+  z-index: 2;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--mf-border);
+}
+
+.site-footer {
+  border-bottom: 0;
+  border-top: 1px solid var(--mf-border);
+  margin-top: 2.5rem;
+  font-size: var(--mf-font-size-footer);
+  color: var(--mf-muted);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--mf-ink);
+}
+
+.wordmark {
+  display: block;
+  width: 11.5rem;
+  aspect-ratio: 890 / 176;
+  position: relative;
+  overflow: hidden;
+}
+
+.wordmark img {
+  position: absolute;
+  width: calc(1024 / 890 * 100%);
+  max-width: none;
+  height: auto;
+  left: calc(-68 / 890 * 100%);
+  top: calc(-762 / 176 * 100%);
+  mix-blend-mode: screen;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--mf-ink);
+  text-decoration: none;
+  font-weight: var(--mf-weight);
+}
+
+.nav a[aria-current="page"] {
+  box-shadow: inset 0 -2px 0 var(--mf-accent);
+}
+
+.nav a.handbook {
+  color: var(--mf-link);
+}
+
+.mark-row {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.25rem 0;
+}
+
+.mark {
+  width: min(9.5rem, 42vw);
+  height: auto;
+  border: 1px solid var(--mf-border);
+  border-radius: var(--mf-radius);
+}
+
+.sheet {
+  max-width: 38rem;
+  margin: 1.75rem auto 0;
+  padding: 2.25rem 1.75rem 2.5rem;
+  background: var(--mf-page);
+  color: var(--mf-prose);
+  border-radius: var(--mf-radius);
+  font-family: var(--mf-font-prose);
+  font-size: var(--mf-font-size-prose);
+  font-weight: var(--mf-weight);
+  line-height: 1.65;
+}
+
+.sheet h1 {
+  margin: 0 0 1rem;
+  font-family: var(--mf-font-prose);
+  font-size: var(--mf-font-size-h1);
+  font-weight: var(--mf-weight);
+  line-height: 1.25;
+  color: var(--mf-prose);
+}
+
+.sheet p {
+  margin: 0 0 1rem;
+}
+
+.sheet p:last-child {
+  margin-bottom: 0;
+}
+
+.sheet a {
+  color: var(--mf-prose);
+  text-underline-offset: 0.18em;
+}
+
+.sheet strong {
+  font-weight: var(--mf-weight-bold);
+}
+
+.shot {
+  max-width: 52rem;
+  margin: 1.75rem auto 0;
+  padding: 0 1.25rem;
+}
+
+.shot img,
+.shot .plate {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--mf-border);
+  border-radius: var(--mf-radius);
+  background: var(--mf-surface-raised);
+}
+
+.shot .plate {
+  min-height: 12rem;
+}
+
+.shot figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--mf-font-sans);
+  font-size: var(--mf-font-size-chrome);
+  font-weight: var(--mf-weight);
+  color: var(--mf-ink);
+  line-height: 1.45;
+}
+
+.copy {
+  margin: 0;
+}

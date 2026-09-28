@@ -1,0 +1,64 @@
+/*
+ * Forged Iron v3 — canonical tokens for miraforge.com and docs.miraforge.com.
+ * Values are copied from brand/themes/miraforge-forged-iron-v3.json
+ * (id: miraforge-forged-iron-v3). No color in this file is invented.
+ *
+ * fontSize is 13. Other size keys are offsets from that base.
+ * Panel titles ask for sans at 500. Atkinson Hyperlegible is only 400 and 700,
+ * so panel titles use 400. Weight 700 is bold. Do not synthesize a 500.
+ *
+ * The woff2 files are not in this repo. The family names are the locked stacks.
+ * System sans, serif, and monospace stand in until the files are added.
+ * Do not load fonts from a CDN.
+ */
+
+:root {
+  --mf-surface: #1a1c1f;
+  --mf-surface-raised: #30343a;
+  --mf-ink: #e7e0d4;
+  --mf-muted: #a79d92;
+  --mf-border: #3c342d;
+  --mf-page: #f7f1e9;
+  --mf-page-edge: #ddd0b8;
+  --mf-page-gradient: linear-gradient(
+    90deg,
+    #ddd0b8 0%,
+    #e5d8c2 4%,
+    #ede2d1 9%,
+    #f3eadf 14%,
+    #f6efe6 22%,
+    #f7f1e9 50%,
+    #f6efe6 78%,
+    #f3eadf 86%,
+    #ede2d1 91%,
+    #e5d8c2 96%,
+    #ddd0b8 100%
+  );
+  --mf-prose: #26231d;
+  --mf-accent: #c89152;
+  --mf-link: #d7a166;
+  --mf-panel-title: #c0a07b;
+  --mf-quote: #9a7a5c;
+  --mf-selection: #c8915238;
+  --mf-nav-hover: #ffffff08;
+  --mf-nav-selected: #4e43370f;
+  --mf-radius: 4px;
+
+  --mf-font-sans: "Atkinson Hyperlegible", sans-serif;
+  --mf-font-prose: "Literata", serif;
+  --mf-font-mono: "Cutive Mono", ui-monospace, monospace;
+  --mf-font-token: "Roboto Mono", ui-monospace, monospace;
+
+  --mf-font-size: 13px;
+  --mf-font-size-chrome: 13px;
+  --mf-font-size-prose: 16px;
+  --mf-font-size-source: 15px;
+  --mf-font-size-h1: 24px;
+  --mf-font-size-h2: 19px;
+  --mf-font-size-h3: 16px;
+  --mf-font-size-panel-title: 12px;
+  --mf-font-size-footer: 11px;
+
+  --mf-weight: 400;
+  --mf-weight-bold: 700;
+}

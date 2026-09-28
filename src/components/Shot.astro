@@ -1,0 +1,15 @@
+---
+import warPass from '../assets/studio/forged-iron-v3-war-pass.png';
+
+interface Props {
+  caption: string;
+  alt: string;
+}
+
+const { caption, alt } = Astro.props;
+---
+
+<figure class="shot">
+  <img src={warPass.src} width={warPass.width} height={warPass.height} alt={alt} />
+  <figcaption>{caption}</figcaption>
+</figure>
