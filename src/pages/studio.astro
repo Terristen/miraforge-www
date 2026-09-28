@@ -1,0 +1,31 @@
+---
+import Shot from '../components/Shot.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Studio"
+  description="Miraforge Studio is a desktop authoring environment. An Archive holds the writing and the material around it."
+>
+  <article class="sheet">
+    <h1>Studio</h1>
+    <p>
+      Studio is a desktop authoring environment. The work lives in an Archive: a folder on your
+      computer that holds the writing and the material around it.
+    </p>
+    <p>
+      Open an Archive and the window is the instrument. One side is the manuscript, the shape of
+      the writing. Lore sits with it, grouped into types you name. The center is where you write.
+      Metadata keeps the facts about the piece you have open.
+    </p>
+    <p>
+      The handbook is the manual. It starts from a Windows build you already have, and it stays
+      with the writing.
+      <a href="https://docs.miraforge.com/">Open the handbook</a>.
+    </p>
+  </article>
+  <Shot
+    alt="Miraforge Studio with the War Pass Archive open. The manuscript is on the left, the writing is in the center, lore is grouped by type, and metadata is on the right."
+    caption="An Archive open in Studio. The manuscript is the shape of the writing. Lore holds the records beside it. Metadata sits with the piece in the editor."
+  />
+</Base>

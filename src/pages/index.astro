@@ -1,0 +1,43 @@
+---
+import Shot from '../components/Shot.astro';
+import splash from '../../brand/logo/miraforge-studio-splash.jpg';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Miraforge"
+  description="Miraforge is an independent software company. Miraforge Studio is a desktop authoring environment for writers."
+>
+  <div class="mark-row">
+    <img
+      class="mark"
+      src={splash.src}
+      width={splash.width}
+      height={splash.height}
+      alt="Miraforge Studio"
+    />
+  </div>
+  <article class="sheet">
+    <h1>Miraforge</h1>
+    <p>
+      Miraforge is an independent software company. Miraforge Studio is its first product: a
+      desktop authoring environment for writers.
+    </p>
+    <p>
+      Studio keeps an Archive on your computer. The Archive holds the writing and the material you
+      keep around it. You create an Archive, you save your work into it, and you open it again.
+    </p>
+    <p>
+      If you already have the beta, the handbook is the way through a first session and the work
+      that follows.
+      <a href="https://docs.miraforge.com/">Open the handbook</a>.
+    </p>
+    <p>
+      <a href="/studio/">Read what Studio is</a> if you are coming to it for the first time.
+    </p>
+  </article>
+  <Shot
+    alt="Miraforge Studio with the War Pass Archive open. The manuscript lists a prologue and Act 1 beside the editor. Lore is grouped by type below the manuscript, and metadata for the open piece is on the right."
+    caption="The War Pass Archive open in Studio: the manuscript beside the writing, lore grouped by type, and metadata for the piece on the page."
+  />
+</Base>

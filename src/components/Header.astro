@@ -1,0 +1,26 @@
+---
+import splash from '../../brand/logo/miraforge-studio-splash.jpg';
+
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Miraforge, home">
+    <span class="wordmark">
+      <img src={splash.src} width={splash.width} height={splash.height} alt="" />
+    </span>
+  </a>
+  <nav aria-label="Site">
+    <ul class="nav">
+      <li>
+        <a href="/studio/" aria-current={path === '/studio/' ? 'page' : undefined}>Studio</a>
+      </li>
+      <li>
+        <a href="/about/" aria-current={path === '/about/' ? 'page' : undefined}>About</a>
+      </li>
+      <li>
+        <a class="handbook" href="https://docs.miraforge.com/">Handbook</a>
+      </li>
+    </ul>
+  </nav>
+</header>
