@@ -1,17 +1,79 @@
 ---
+import seal from '../../design/reference/widgets/wax_letters.png';
+import plate from '../../design/reference/heros/cartographers_desk_vign.png';
+import Landing from '../components/Landing.astro';
 import Base from '../layouts/Base.astro';
 ---
 
 <Base
   title="About"
-  description="Miraforge is an independent software company. It makes tools for writers and other creative professionals. Studio is the first."
+  description="Miraforge is an independent software company building tools for writers and other creative professionals."
 >
-  <article class="sheet">
-    <h1>About</h1>
-    <p>
-      Miraforge is an independent software company. It makes tools for writers and other creative
-      professionals.
-    </p>
-    <p>Miraforge Studio is the first of those tools, a desktop authoring environment. It is in closed beta.</p>
-  </article>
+  <Landing
+    title="Built for the work of creating"
+    lead="Miraforge is an independent software company building tools for writers and other creative professionals."
+    hero
+    seal={seal}
+    plate={plate}
+    plateAlt="A journal, pen, and brass instruments on a writer's desk."
+  >
+    <Fragment slot="essay">
+      <p>
+        We started Miraforge because we are writers ourselves, and we grew tired of assembling a
+        creative workspace from software made by different companies for different purposes. Each
+        tool might do its job well, but moving constantly between them breaks the creative rhythm.
+        Manuscripts become separated from notes. Characters and places live somewhere else.
+        Timelines, research, and ideas scatter across applications, files, and services.
+      </p>
+      <p>Over time, the work itself becomes fragmented.</p>
+      <p>
+        We wanted something different: a place where the manuscript and everything that gives it
+        context could live together, without the software getting in the way of the writing.
+      </p>
+      <p>
+        We also wanted confidence that our work remained ours. Creative projects can represent
+        years of thought and effort. They shouldn't depend on the continued existence of a
+        particular cloud service or company. Writers should be able to understand where their work
+        lives, keep control of it, and trust that the tools they use today won't become a barrier
+        to their work tomorrow.
+      </p>
+      <p>That thinking became Miraforge Studio.</p>
+      <h2>Technology should serve the writer</h2>
+      <p>
+        The arrival of generative AI added another question: what role, if any, should AI have in a
+        creative workspace?
+      </p>
+      <p>
+        We understand why that question is divisive. Miraforge isn't built around AI, and AI isn't
+        required to use Studio. We began with the traditional tools writers actually need: writing,
+        organization, lore, timelines, structure, relationships, and the ability to understand a
+        growing body of creative work.
+      </p>
+      <p>But we also believe AI can be useful when it is applied with restraint and purpose.</p>
+      <p>
+        We aren't interested in bolting a general-purpose chatbot onto a manuscript or asking a
+        machine to become the author. We are interested in the less glamorous problems: finding
+        information buried in years of notes, checking continuity, organizing material, handling
+        repetitive work, and helping a writer navigate the growing complexity of a project without
+        losing focus.
+      </p>
+      <p>Our goal is not AI that demands your attention.</p>
+      <p>It is technology that quietly removes obstacles from your path.</p>
+      <h2>Keep creating</h2>
+      <p>Miraforge exists to help creative people spend more of their time creating.</p>
+      <p>
+        That means building tools that work together instead of pulling you in different
+        directions. It means respecting ownership of the work and the choices of the person
+        creating it. And it means adopting new technology when it genuinely makes the creative
+        process better, not simply because it is new.
+      </p>
+      <p>We aren't pro-AI or anti-AI.</p>
+      <p class="credo">We're pro-creator.</p>
+      <p>That's the standard we're building Miraforge around.</p>
+      <div class="landing-actions">
+        <a class="btn btn-primary btn-brass" href="/">Return home</a>
+        <a class="btn btn-brass-inverse" href="/studio/">Explore Studio</a>
+      </div>
+    </Fragment>
+  </Landing>
 </Base>

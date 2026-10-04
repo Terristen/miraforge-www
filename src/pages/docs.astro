@@ -1,0 +1,73 @@
+---
+import seal from '../../design/reference/widgets/wax_letters.png';
+import plate from '../../design/reference/heros/scholars_study.png';
+import Landing from '../components/Landing.astro';
+import Base from '../layouts/Base.astro';
+
+const guides = [
+  {
+    title: 'Getting Started',
+    copy: 'Installation, Archives, manuscript basics, and the core Studio workflow.',
+    status: 'Coming soon',
+  },
+  {
+    title: 'Studio Guides',
+    copy: 'Lore, timelines, plot maps, knowledge graphs, themes, and other creative tools.',
+    status: 'In development',
+  },
+  {
+    title: 'Advanced Workflows',
+    copy: 'Temporal schemas, automation, AI-assisted tools, and deeper project organization.',
+    status: 'Coming later',
+  },
+];
+---
+
+<Base
+  title="Documentation"
+  description="Guides, references, and deeper workflows for Miraforge Studio are being prepared for the beta."
+>
+  <Landing
+    hero
+    eyebrow="Miraforge Documentation"
+    title="Documentation is taking shape"
+    lead="Guides, references, and deeper workflows for Miraforge Studio are being prepared for the beta."
+    seal={seal}
+    plate={plate}
+    plateAlt="A scholar's desk with bound volumes, loose annotated pages, a magnifying glass, and a lamp."
+  >
+    <Fragment slot="after">
+      <div class="doc-intro">
+        <p>
+          Miraforge Studio is still evolving, and so is its documentation. We're building a guide
+          that starts with the essentials and grows into the deeper tools for organizing,
+          understanding, and developing your work.
+        </p>
+        <p>
+          During the beta, documentation will expand alongside Studio itself. For now, you can
+          return to Miraforge, explore Studio, or reach out if you need help.
+        </p>
+      </div>
+      <ul class="doc-cards">
+        {
+          guides.map((guide) => (
+            <li class="doc-card">
+              <h2>{guide.title}</h2>
+              <p>{guide.copy}</p>
+              <p class="doc-status">{guide.status}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="doc-help">
+        <h2>Need help during the beta?</h2>
+        <p>We'd rather answer the question than leave you stuck.</p>
+        <div class="landing-actions">
+          <a class="btn btn-primary btn-brass" href="/">Return to Miraforge</a>
+          <a class="btn btn-brass-inverse" href="/studio/">Explore Studio</a>
+          <a class="btn btn-brass-inverse" href="mailto:hello@miraforge.com">Contact Us</a>
+        </div>
+      </div>
+    </Fragment>
+  </Landing>
+</Base>

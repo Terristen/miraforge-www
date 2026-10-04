@@ -1,0 +1,327 @@
+---
+import pieceArchive from '../../../design/reference/archive/archive.png';
+import pieceCharacters from '../../../design/reference/archive/characters.png';
+import pieceManuscript from '../../../design/reference/archive/manuscript.png';
+import pieceNotes from '../../../design/reference/archive/notes.png';
+import piecePlaces from '../../../design/reference/archive/places.png';
+import pieceTimeline from '../../../design/reference/archive/timelines.png';
+import orrery from '../../../design/reference/orrery.png';
+import rule from '../../../design/reference/widgets/horizontal_accent.png';
+---
+
+<section class="approach" aria-labelledby="approach-heading">
+  <div class="approach-grid frame">
+    <div>
+      <img class="approach-rule" src={rule.src} width={rule.width} height={rule.height} alt="" />
+      <p class="eyebrow">The Miraforge Approach</p>
+      <h2 id="approach-heading">Knowledge Management for Writers</h2>
+      <p class="approach-lead">
+        Manuscripts, characters, places, notes, timelines, and research all live together in one
+        Archive. Miraforge keeps the material around your work organized, connected, and close at
+        hand.
+      </p>
+      <a class="btn btn-brass" href="/studio/">
+        Explore Studio
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <figure class="archive-map">
+      <div class="archive-map-stage">
+        <img
+          class="archive-orrery"
+          src={orrery.src}
+          width={orrery.width}
+          height={orrery.height}
+          alt=""
+        />
+        <p class="fragment fragment-archive">
+          <img src={pieceArchive.src} width={pieceArchive.width} height={pieceArchive.height} alt="Archive" />
+        </p>
+        <p class="fragment fragment-manuscript" data-orbit="manuscript">
+          <img src={pieceManuscript.src} width={pieceManuscript.width} height={pieceManuscript.height} alt="Manuscript" />
+        </p>
+        <p class="fragment fragment-characters" data-orbit="characters">
+          <img src={pieceCharacters.src} width={pieceCharacters.width} height={pieceCharacters.height} alt="Characters" />
+        </p>
+        <p class="fragment fragment-notes" data-orbit="notes">
+          <img src={pieceNotes.src} width={pieceNotes.width} height={pieceNotes.height} alt="Notes" />
+        </p>
+        <p class="fragment fragment-places" data-orbit="places">
+          <img src={piecePlaces.src} width={piecePlaces.width} height={piecePlaces.height} alt="Places" />
+        </p>
+        <p class="fragment fragment-timeline" data-orbit="timeline">
+          <img src={pieceTimeline.src} width={pieceTimeline.width} height={pieceTimeline.height} alt="Timeline" />
+        </p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<script>
+  const stage = document.querySelector('.archive-map-stage');
+  if (stage && stage.dataset.orbitReady !== 'true') {
+    stage.dataset.orbitReady = 'true';
+
+    // Resting angles stay in CSS. This list is only the motion around those anchors.
+    // Periods are intentionally incommensurate so the group does not share a visible loop.
+    const orbits = [
+      {
+        key: 'manuscript',
+        period: 94,
+        phase: 0.4,
+        radiusX: 24,
+        radiusY: 13,
+        driftPeriod: 59,
+        driftPhase: 2.1,
+        drift: 5,
+        rotatePeriod: 41,
+        rotatePhase: 1.1,
+        rotateAmp: 2.2,
+        scalePeriod: 53,
+        scalePhase: 4.2,
+        scaleAmp: 0.012,
+      },
+      {
+        key: 'characters',
+        period: 67,
+        phase: 2.6,
+        radiusX: 14,
+        radiusY: 9,
+        driftPeriod: 43,
+        driftPhase: 0.8,
+        drift: 3.5,
+        rotatePeriod: 31,
+        rotatePhase: 3.4,
+        rotateAmp: 1.6,
+        scalePeriod: 43,
+        scalePhase: 1.7,
+        scaleAmp: 0.01,
+      },
+      {
+        key: 'notes',
+        period: 76,
+        phase: 4.9,
+        radiusX: 12,
+        radiusY: 7,
+        driftPeriod: 53,
+        driftPhase: 5.2,
+        drift: 4,
+        rotatePeriod: 43,
+        rotatePhase: 0.5,
+        rotateAmp: 1.8,
+        scalePeriod: 59,
+        scalePhase: 2.8,
+        scaleAmp: 0.01,
+      },
+      {
+        key: 'places',
+        period: 101,
+        phase: 1.5,
+        radiusX: 20,
+        radiusY: 11,
+        driftPeriod: 61,
+        driftPhase: 3.7,
+        drift: 4,
+        rotatePeriod: 53,
+        rotatePhase: 5.6,
+        rotateAmp: 2.4,
+        scalePeriod: 61,
+        scalePhase: 0.3,
+        scaleAmp: 0.012,
+      },
+      {
+        key: 'timeline',
+        period: 83,
+        phase: 5.8,
+        radiusX: 24,
+        radiusY: 8,
+        driftPeriod: 47,
+        driftPhase: 1.2,
+        drift: 3,
+        rotatePeriod: 59,
+        rotatePhase: 2.4,
+        rotateAmp: 1.5,
+        scalePeriod: 47,
+        scalePhase: 4.7,
+        scaleAmp: 0.01,
+      },
+    ];
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const releaseMs = 1600;
+
+    const baseRotation = (el) => {
+      const value = getComputedStyle(el).rotate;
+      if (!value || value === 'none') return 0;
+      const angle = parseFloat(value);
+      return Number.isFinite(angle) ? angle : 0;
+    };
+
+    const slips = orbits.flatMap((orbit) => {
+      const el = stage.querySelector(`[data-orbit="${orbit.key}"]`);
+      if (!el) return [];
+      return [
+        {
+          orbit,
+          el,
+          base: 0,
+          holding: false,
+          frozen: null,
+          release: null,
+          last: null,
+        },
+      ];
+    });
+
+    const motionScale = () => {
+      if (reduced.matches || window.innerWidth <= 960) return 0;
+      if (window.innerWidth < 1200) return 0.85;
+      return 1;
+    };
+
+    const smoothstep = (u) => {
+      const t = Math.min(1, Math.max(0, u));
+      return t * t * (3 - 2 * t);
+    };
+
+    const poseAt = (entry, t, scale) => {
+      const orbit = entry.orbit;
+      const room = entry.room || { x: orbit.radiusX, y: orbit.radiusY + orbit.drift };
+      const xScale = Math.min(scale, orbit.radiusX > 0 ? room.x / orbit.radiusX : 0);
+      const ySpan = orbit.radiusY + orbit.drift;
+      const yScale = Math.min(scale, ySpan > 0 ? room.y / ySpan : 0);
+      const turn = (Math.PI * 2 * t) / orbit.period + orbit.phase;
+      const drift = (Math.PI * 2 * t) / orbit.driftPeriod + orbit.driftPhase;
+      const spin = (Math.PI * 2 * t) / orbit.rotatePeriod + orbit.rotatePhase;
+      const breath = (Math.PI * 2 * t) / orbit.scalePeriod + orbit.scalePhase;
+      return {
+        x: Math.cos(turn) * orbit.radiusX * xScale,
+        y: Math.sin(turn) * orbit.radiusY * yScale + Math.sin(drift) * orbit.drift * yScale,
+        rot: entry.base + Math.sin(spin) * orbit.rotateAmp * scale,
+        s: 1 + Math.sin(breath) * orbit.scaleAmp * scale,
+      };
+    };
+
+    const mix = (from, to, u) => ({
+      x: from.x + (to.x - from.x) * u,
+      y: from.y + (to.y - from.y) * u,
+      rot: from.rot + (to.rot - from.rot) * u,
+      s: from.s + (to.s - from.s) * u,
+    });
+
+    const write = (entry, pose) => {
+      entry.el.style.zIndex = entry.holding ? '5' : '4';
+      entry.el.style.rotate = '0deg';
+      entry.el.style.transform = `translate3d(${pose.x.toFixed(2)}px, ${pose.y.toFixed(2)}px, 0) rotate(${pose.rot.toFixed(3)}deg) scale(${pose.s.toFixed(4)})`;
+      entry.last = pose;
+    };
+
+    const clear = (entry) => {
+      entry.el.style.rotate = '';
+      entry.el.style.transform = '';
+      entry.el.classList.remove('fragment-orbit', 'is-held');
+      entry.holding = false;
+      entry.frozen = null;
+      entry.release = null;
+    };
+
+    let frame = 0;
+    let running = false;
+
+    const tick = (now) => {
+      const scale = motionScale();
+      if (scale === 0) {
+        slips.forEach(clear);
+        running = false;
+        frame = 0;
+        return;
+      }
+
+      const t = now / 1000;
+      for (const entry of slips) {
+        const live = poseAt(entry, t, scale);
+        let pose = live;
+        if (entry.holding && entry.frozen) {
+          pose = entry.frozen;
+        } else if (entry.release) {
+          const u = smoothstep((now - entry.release.start) / releaseMs);
+          pose = mix(entry.release.from, live, u);
+          if (u >= 1) entry.release = null;
+        }
+        write(entry, pose);
+      }
+
+      frame = requestAnimationFrame(tick);
+    };
+
+    const measureRooms = () => {
+      for (const entry of slips) {
+        entry.el.style.rotate = '0deg';
+        entry.el.style.transform = `rotate(${entry.base}deg)`;
+      }
+      const bounds = stage.getBoundingClientRect();
+      for (const entry of slips) {
+        const rect = entry.el.getBoundingClientRect();
+        const slackX = Math.min(rect.left - (bounds.left + 6), bounds.right - 6 - rect.right);
+        const slackY = Math.min(rect.top - (bounds.top + 6), bounds.bottom - 6 - rect.bottom);
+        entry.room = { x: Math.max(0, slackX), y: Math.max(0, slackY) };
+      }
+    };
+
+    const start = () => {
+      if (motionScale() === 0) return;
+      if (!running) {
+        for (const entry of slips) {
+          entry.el.style.rotate = '';
+          entry.base = baseRotation(entry.el);
+          entry.el.classList.add('fragment-orbit');
+        }
+        measureRooms();
+        running = true;
+        frame = requestAnimationFrame(tick);
+        return;
+      }
+      measureRooms();
+    };
+
+    const stop = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      running = false;
+      slips.forEach(clear);
+    };
+
+    const sync = () => {
+      if (motionScale() === 0) stop();
+      else start();
+    };
+
+    const hold = (entry) => {
+      entry.holding = true;
+      entry.release = null;
+      entry.frozen = entry.last
+        ? { ...entry.last }
+        : poseAt(entry, performance.now() / 1000, motionScale() || 1);
+      entry.el.classList.add('is-held');
+    };
+
+    const letGo = (entry) => {
+      if (!entry.holding) return;
+      entry.holding = false;
+      entry.release = { from: entry.frozen || entry.last, start: performance.now() };
+      entry.frozen = null;
+      entry.el.classList.remove('is-held');
+    };
+
+    for (const entry of slips) {
+      entry.el.addEventListener('pointerenter', () => hold(entry));
+      entry.el.addEventListener('pointerleave', () => letGo(entry));
+      entry.el.addEventListener('focusin', () => hold(entry));
+      entry.el.addEventListener('focusout', () => letGo(entry));
+    }
+
+    reduced.addEventListener('change', sync);
+    window.addEventListener('resize', sync);
+    sync();
+  }
+</script>

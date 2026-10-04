@@ -1,0 +1,475 @@
+.landing {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background-color: var(--mf-surface);
+  background-image:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--mf-surface) 94%, transparent) 0%,
+      color-mix(in srgb, var(--mf-surface) 78%, transparent) 42%,
+      color-mix(in srgb, var(--mf-surface) 28%, transparent) 100%
+    ),
+    url("../../design/reference/iron_surface.png");
+  background-repeat: no-repeat;
+  background-size: auto, cover;
+  background-position: center, center top;
+}
+
+.landing-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.2fr);
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+  align-items: center;
+  width: min(88rem, 100%);
+  margin-inline: auto;
+  padding: clamp(2.4rem, 6vw, 4.5rem) var(--mf-gutter) clamp(2.8rem, 7vw, 5rem);
+}
+
+.landing:has(.landing-essay) .landing-stage {
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.landing-copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.landing-seal {
+  display: block;
+  width: 4.6rem;
+  height: auto;
+  margin-bottom: 0.85rem;
+}
+
+.landing-eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--mf-accent);
+  font-family: var(--mf-font-sans);
+  font-size: var(--mf-font-size-eyebrow);
+  font-weight: var(--mf-weight);
+  letter-spacing: var(--mf-tracking-eyebrow);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.landing-rule {
+  display: block;
+  width: min(11rem, 70%);
+  height: auto;
+  margin: 0 0 1rem;
+}
+
+.landing h1 {
+  margin: 0;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: var(--mf-weight);
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+
+.landing-lead {
+  max-width: 36rem;
+  margin: 1.15rem 0 0;
+  color: var(--mf-muted);
+  font-family: var(--mf-font-text);
+  font-size: var(--mf-font-size-lead);
+  line-height: 1.6;
+}
+
+.landing-body {
+  max-width: 36rem;
+  margin-top: 1rem;
+  color: var(--mf-muted);
+  font-family: var(--mf-font-text);
+  font-size: var(--mf-font-size-prose);
+  line-height: 1.65;
+}
+
+.landing-body p {
+  margin: 0 0 0.85rem;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.landing-plate {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.landing-plate img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.landing-stage::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -12% -6% -8% 36%;
+  background: url("../../design/reference/nodes_and_edges.png") 80% center / 118% no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.landing-essay {
+  --corner-size: min(32rem, 72vw);
+  position: relative;
+  z-index: 1;
+  width: min(42rem, calc(100% - (var(--mf-gutter) * 2)));
+  margin-inline: auto;
+  padding-top: calc(var(--corner-size) * 0.46);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+  color: var(--mf-ink);
+  font-family: var(--mf-font-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.essay-corner {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: calc(var(--corner-size) * -0.3);
+  width: var(--corner-size);
+  height: auto;
+  pointer-events: none;
+}
+
+.landing-essay h2 {
+  margin: 2.5rem 0 0.85rem;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-display);
+  font-size: clamp(1.85rem, 3vw, 2.45rem);
+  font-weight: var(--mf-weight);
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.landing-essay p {
+  margin: 0 0 1rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.landing-essay .credo {
+  margin: 1.35rem 0 1.2rem;
+  color: color-mix(in srgb, var(--mf-ink) 35%, white);
+  font-family: var(--mf-font-display);
+  font-size: clamp(1.55rem, 2.2vw, 1.8rem);
+  line-height: 1.15;
+  text-align: start;
+  hyphens: manual;
+}
+
+/* About hero. Same wash and column split as the homepage. The plate
+   overlaps the text column so the slate wash covers its left edge. */
+.landing-hero {
+  background-image:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--mf-surface) 94%, transparent) 0%,
+      color-mix(in srgb, var(--mf-surface) 86%, transparent) 30%,
+      color-mix(in srgb, var(--mf-surface) 42%, transparent) 58%,
+      color-mix(in srgb, var(--mf-surface) 22%, transparent) 100%
+    ),
+    url("../../design/reference/iron_surface.png");
+}
+
+.landing-hero .landing-stage {
+  grid-template-columns: minmax(17rem, 1.06fr) minmax(0, 1.36fr);
+  gap: 0;
+  align-items: center;
+  padding-block: clamp(1.6rem, 3vw, 2.6rem) clamp(1.15rem, 2.4vw, 1.8rem);
+}
+
+.landing-hero.landing:has(.landing-essay) .landing-stage {
+  padding-bottom: clamp(1.15rem, 2.4vw, 1.8rem);
+}
+
+.landing-hero .landing-stage::before {
+  display: none;
+}
+
+.landing-hero .landing-copy {
+  z-index: 2;
+}
+
+.landing-hero .landing-copy::before {
+  display: none;
+}
+
+.landing-hero .landing-stage::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--mf-surface) 97%, transparent) 0%,
+    color-mix(in srgb, var(--mf-surface) 94%, transparent) 40%,
+    color-mix(in srgb, var(--mf-surface) 48%, transparent) 56%,
+    color-mix(in srgb, var(--mf-surface) 12%, transparent) 70%,
+    transparent 82%
+  );
+  pointer-events: none;
+}
+
+.landing-hero .landing-plate {
+  z-index: 0;
+}
+
+.landing-hero .landing-plate::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -10% -7% 0 8%;
+  background: url("../../design/reference/nodes_and_edges.png") 82% center / 118% no-repeat;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.landing-hero .landing-plate img {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 115%;
+  max-width: none;
+  margin-left: -15%;
+  border: 1px solid var(--mf-accent);
+  box-shadow:
+    0 18px 40px rgb(0 0 0 / 0.55),
+    0 2px 8px rgb(0 0 0 / 0.4);
+}
+
+.landing-after {
+  position: relative;
+  z-index: 1;
+  width: min(72rem, calc(100% - (var(--mf-gutter) * 2)));
+  margin-inline: auto;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.doc-intro {
+  width: min(42rem, 100%);
+  margin: 0 0 2.25rem;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.doc-intro p {
+  margin: 0 0 1rem;
+}
+
+.doc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-card {
+  margin: 0;
+  padding: 1.05rem 1.1rem 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--mf-accent) 55%, var(--mf-border));
+  border-radius: var(--mf-radius);
+  background: color-mix(in srgb, var(--mf-surface-raised) 28%, black);
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.32);
+}
+
+.doc-card h2 {
+  margin: 0 0 0.4rem;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-text);
+  font-size: 1.12rem;
+  font-weight: var(--mf-weight-bold);
+  line-height: 1.3;
+}
+
+.doc-card p {
+  margin: 0;
+  color: var(--mf-muted);
+  font-family: var(--mf-font-text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.doc-status {
+  margin-top: 0.85rem;
+  color: var(--mf-accent);
+  font-family: var(--mf-font-button);
+  font-size: 0.68rem;
+  font-weight: var(--mf-weight-bold);
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.doc-help {
+  width: min(42rem, 100%);
+  margin-top: 2.75rem;
+}
+
+.doc-help h2 {
+  margin: 0;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-display);
+  font-size: clamp(1.85rem, 3vw, 2.4rem);
+  font-weight: var(--mf-weight);
+  line-height: 1.15;
+}
+
+.doc-help p {
+  margin: 0.75rem 0 0;
+  color: var(--mf-muted);
+  font-family: var(--mf-font-text);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.doc-help .landing-actions {
+  margin-top: 1.35rem;
+}
+
+.landing .btn.btn-brass,
+.landing .btn.btn-primary.btn-brass,
+.landing .btn.btn-brass-inverse {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: var(--mf-radius);
+  min-height: 2.6rem;
+  padding: 0.55rem 1.05rem;
+  font-family: var(--mf-font-button);
+  font-size: 0.78rem;
+  font-weight: var(--mf-weight-bold);
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+}
+
+.landing .btn.btn-brass,
+.landing .btn.btn-primary.btn-brass {
+  border-color: color-mix(in srgb, var(--mf-prose) 62%, black);
+  background-color: var(--mf-accent);
+  background-image: url("../../design/reference/widgets/gold_foil.png");
+  background-repeat: no-repeat;
+  background-position: -30px center;
+  background-size: 330px 63px;
+  color: var(--mf-ink);
+  font-weight: 700;
+  -webkit-text-stroke: 0;
+  text-shadow: 0 1px 0 rgb(28 16 4 / 0.72);
+}
+
+.landing .btn.btn-primary.btn-brass {
+  background-position: 0 center;
+}
+
+.landing .btn.btn-brass:hover,
+.landing .btn.btn-primary.btn-brass:hover {
+  background-color: var(--mf-accent);
+  background-image: url("../../design/reference/widgets/gold_foil.png");
+  background-size: 330px 63px;
+  filter: brightness(1.06);
+}
+
+.landing .btn.btn-brass-inverse {
+  border-color: transparent;
+  background-color: var(--mf-surface);
+  background-image:
+    linear-gradient(var(--mf-surface), var(--mf-surface)),
+    url("../../design/reference/widgets/gold_foil.png");
+  background-repeat: no-repeat;
+  background-position: center, 20% 40%;
+  background-size: auto, 240% auto;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  color: var(--mf-ink);
+  text-shadow: none;
+}
+
+.landing .btn.btn-brass-inverse:hover {
+  border-color: transparent;
+  background-color: var(--mf-surface);
+  background-image:
+    linear-gradient(var(--mf-surface), var(--mf-surface)),
+    url("../../design/reference/widgets/gold_foil.png");
+  background-repeat: no-repeat;
+  background-position: center, 20% 40%;
+  background-size: auto, 240% auto;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  filter: brightness(1.08);
+}
+
+@media (max-width: 960px) {
+  .landing-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-stage::before {
+    opacity: 0.35;
+    inset: auto -4% 0 -4%;
+    height: 42%;
+  }
+
+  .landing-hero .landing-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero {
+    background-image:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--mf-surface) 88%, transparent) 0%,
+        color-mix(in srgb, var(--mf-surface) 55%, transparent) 42%,
+        color-mix(in srgb, var(--mf-surface) 28%, transparent) 100%
+      ),
+      url("../../design/reference/iron_surface.png");
+  }
+
+  .landing-hero .landing-stage::after {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--mf-surface) 90%, transparent) 0%,
+      color-mix(in srgb, var(--mf-surface) 42%, transparent) 36%,
+      transparent 58%
+    );
+  }
+
+  .landing-essay {
+    padding-top: 0;
+  }
+
+  .essay-corner {
+    display: none;
+  }
+
+  .doc-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero .landing-plate {
+    overflow: hidden;
+  }
+
+  .landing-hero .landing-plate img {
+    width: 115%;
+    margin-left: -15%;
+  }
+}

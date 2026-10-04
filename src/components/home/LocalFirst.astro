@@ -1,0 +1,39 @@
+---
+import book from '../../../design/reference/book_and_pen.png';
+import accentLocal from '../../../design/reference/widgets/accent_local.png';
+import accentOffline from '../../../design/reference/widgets/accent_offline.png';
+import accentLast from '../../../design/reference/widgets/accent_builttolast.png';
+---
+
+<section class="local" aria-labelledby="local-heading">
+  <div class="local-grid frame">
+    <figure class="still local-still">
+      <img src={book.src} width={book.width} height={book.height} alt="" />
+    </figure>
+    <div class="local-copy">
+      <p class="eyebrow">Built for writers</p>
+      <h2 id="local-heading">Your work stays yours.</h2>
+      <p class="local-lead">
+        Miraforge Studio is local-first. The Archive is a folder on your computer. You choose it,
+        you save into it, and the files remain yours.
+      </p>
+      <ul class="pillars">
+        <li>
+          <img class="pillar-icon" src={accentLocal.src} width={accentLocal.width} height={accentLocal.height} alt="" />
+          <h3>Local-first</h3>
+          <p>It’s your book. Keep it on your computer, not someone else’s server.</p>
+        </li>
+        <li>
+          <img class="pillar-icon" src={accentOffline.src} width={accentOffline.width} height={accentOffline.height} alt="" />
+          <h3>Offline by design</h3>
+          <p>No Wi-Fi? No problem. Keep writing and never get locked out of your manuscript.</p>
+        </li>
+        <li>
+          <img class="pillar-icon" src={accentLast.src} width={accentLast.width} height={accentLast.height} alt="" />
+          <h3>Built to last</h3>
+          <p>No proprietary file formats. Your source stays in plain Markdown, compatible with Git for version control and backup.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

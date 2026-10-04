@@ -1,31 +1,195 @@
 ---
-import Shot from '../components/Shot.astro';
+import seal from '../../design/reference/widgets/wax_book.png';
+import plate from '../../design/reference/heros/CandlelightStudioDesktop.png';
+import everything from '../../design/reference/heros/stilllife_everything.png';
+import planning from '../../design/reference/heros/stilllife_planning.png';
+import research from '../../design/reference/heros/stilllife_research.png';
+import notes from '../../design/reference/heros/stillife_notes.png';
+import ai from '../../design/reference/heros/stilllife_ai_section.png';
+import creating from '../../design/reference/heros/stilllife_keep_creating.png';
+import Landing from '../components/Landing.astro';
 import Base from '../layouts/Base.astro';
+import '../styles/studio.css';
+
+const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph'];
 ---
 
 <Base
   title="Studio"
-  description="Miraforge Studio is a desktop authoring environment. An Archive holds the writing and the material around it."
+  description="Miraforge Studio is a desktop workspace for writers and other creative professionals. The manuscript, lore, timelines, structure, and supporting material live together in one Archive."
 >
-  <article class="sheet">
-    <h1>Studio</h1>
+  <Landing
+    hero
+    eyebrow="Miraforge Studio"
+    title="A creative workspace built around the work itself"
+    lead="Write, organize, explore, and develop complex creative projects without scattering them across disconnected tools."
+    seal={seal}
+    plate={plate}
+    plateAlt="An open manuscript on a worktable, surrounded by maps, index cards, drafting tools, and bound volumes."
+  >
     <p>
-      Studio is a desktop authoring environment. The work lives in an Archive: a folder on your
-      computer that holds the writing and the material around it.
+      Miraforge Studio is a desktop workspace for writers and other creative professionals. It
+      brings the manuscript, lore, timelines, structure, relationships, and supporting material
+      together inside a single project Archive.
     </p>
-    <p>
-      Open an Archive and the window is the instrument. One side is the manuscript, the shape of
-      the writing. Lore sits with it, grouped into types you name. The center is where you write.
-      Metadata keeps the facts about the piece you have open.
-    </p>
-    <p>
-      The handbook is the manual. It starts from a Windows build you already have, and it stays
-      with the writing.
-      <a href="https://docs.miraforge.com/">Open the handbook</a>.
-    </p>
-  </article>
-  <Shot
-    alt="Miraforge Studio with the War Pass Archive open. The manuscript is on the left, the writing is in the center, lore is grouped by type, and metadata is on the right."
-    caption="An Archive open in Studio. The manuscript is the shape of the writing. Lore holds the records beside it. Metadata sits with the piece in the editor."
-  />
+    <p>The goal is simple: keep the tools close to the work, without letting the tools become the work.</p>
+    <Fragment slot="after">
+      <div class="studio-story">
+        <section class="studio-block">
+          <div class="studio-copy">
+            <h2>Everything belongs to the work</h2>
+            <p>Creative projects rarely live in a manuscript alone.</p>
+            <p>
+              Characters accumulate histories. Places gain detail. Timelines become complicated.
+              Ideas move. Scenes change purpose. Research piles up. Connections emerge that were
+              never planned at the beginning.
+            </p>
+            <p>Studio is designed around that reality.</p>
+            <p>
+              Instead of treating those materials as separate files or separate applications, Studio
+              keeps them together inside an Archive: a durable home for the work and the knowledge
+              surrounding it.
+            </p>
+          </div>
+          <figure class="studio-figure">
+            <img
+              src={everything.src}
+              width={everything.width}
+              height={everything.height}
+              alt="An open folio surrounded by character studies, a map, a timeline, and a web of relationships."
+            />
+            <ul class="studio-cluster">
+              {belongs.map((name) => <li>{name}</li>)}
+            </ul>
+          </figure>
+        </section>
+
+        <section class="studio-block is-flip">
+          <figure class="studio-figure">
+            <img
+              src={notes.src}
+              width={notes.width}
+              height={notes.height}
+              alt="A desk covered in handwritten notes, index cards, and sketches."
+            />
+          </figure>
+          <div class="studio-copy">
+            <h2>Structure without forcing a method</h2>
+            <p>Writers work differently.</p>
+            <p>
+              Some plan extensively before writing. Others discover the story as they go. Some think
+              in scenes, some in timelines, some in relationships, and some simply need a place to
+              keep the growing mass of a project understandable.
+            </p>
+            <p>Studio provides structure without prescribing a creative method.</p>
+            <p>
+              Use as much or as little of it as the work requires. The tools are there to support
+              the process, not dictate it.
+            </p>
+          </div>
+        </section>
+
+        <section class="studio-block">
+          <div class="studio-copy">
+            <h2>Built for projects that grow</h2>
+            <p>A novel can begin as a few pages and end with years of accumulated material.</p>
+            <p>Studio is being built for that entire journey.</p>
+            <p>
+              Its deeper tools help you follow relationships, understand chronology, navigate large
+              bodies of lore, and maintain context as the project becomes more complex.
+            </p>
+            <p>
+              The same Archive that holds an early draft can grow with the work rather than being
+              replaced by a collection of increasingly fragile files and applications.
+            </p>
+            <p class="studio-callout">One Archive. One body of work. Many ways to understand it.</p>
+          </div>
+          <figure class="studio-figure">
+            <img
+              src={research.src}
+              width={research.width}
+              height={research.height}
+              alt="An open research volume with a card file, maps, and connected reference cards."
+            />
+          </figure>
+        </section>
+
+        <section class="studio-block is-flip">
+          <figure class="studio-figure">
+            <img
+              src={ai.src}
+              width={ai.width}
+              height={ai.height}
+              alt="An open ledger of connected sketches, with a card file and drafting tools beside it."
+            />
+          </figure>
+          <div class="studio-copy">
+            <h2>AI is optional. Useful is mandatory.</h2>
+            <p>Studio is not built around generative AI, and AI is never required to use it.</p>
+            <p>Where AI is used, our standard is simple: it should solve a real problem.</p>
+            <p>
+              That may mean helping locate information across a large Archive, checking continuity,
+              organizing material, or handling work that would otherwise interrupt the creative
+              process.
+            </p>
+            <p>
+              We are less interested in AI that generates for you than in AI that helps Studio
+              understand the work you have already created.
+            </p>
+            <p class="studio-credo">The writer remains the author. The software remains the tool.</p>
+          </div>
+        </section>
+
+        <section class="studio-block">
+          <div class="studio-copy">
+            <h2>Built to become more than a novel-writing tool</h2>
+            <p>Studio begins with long-form fiction because that is the problem we know best.</p>
+            <p>
+              But stories and creative projects take many forms. Screenplays, stage works, serial
+              fiction, tabletop campaigns, nonfiction, and other forms of structured creative work
+              share many of the same underlying needs: content, knowledge, relationships,
+              chronology, and organization.
+            </p>
+            <p>Studio is being designed with that broader future in mind.</p>
+          </div>
+          <figure class="studio-figure">
+            <img
+              src={planning.src}
+              width={planning.width}
+              height={planning.height}
+              alt="An open planning book with scene sketches, loose outlines, and stacks of reference volumes."
+            />
+          </figure>
+        </section>
+
+        <section class="studio-block is-flip studio-close">
+          <figure class="studio-figure">
+            <img
+              src={creating.src}
+              width={creating.width}
+              height={creating.height}
+              alt="A closed journal with a compass rose, resting on maps, sketches, and bound volumes."
+            />
+          </figure>
+          <div class="studio-copy">
+            <h2>Keep the work together. Keep creating.</h2>
+            <p>Miraforge Studio exists to reduce the distance between an idea and the work of developing it.</p>
+            <p>
+              Fewer disconnected tools. Less time hunting for context. More confidence that the
+              project remains understandable as it grows.
+            </p>
+            <p>
+              The software should help you hold the shape of the work in your mind — and then get out
+              of the way.
+            </p>
+            <div class="landing-actions">
+              <a class="btn btn-primary btn-brass" href="/studio/">Explore Studio</a>
+              <button class="btn btn-brass-inverse" type="button" disabled>See Features</button>
+              <button class="btn btn-brass-inverse" type="button" disabled>Join the Beta</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </Fragment>
+  </Landing>
 </Base>

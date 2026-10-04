@@ -1,0 +1,68 @@
+---
+import type { ImageMetadata } from 'astro';
+import rule from '../../design/reference/widgets/horizontal_accent.png';
+import corner from '../../design/reference/widgets/corner_accent.png';
+import '../styles/landing.css';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  seal: ImageMetadata;
+  plate: ImageMetadata;
+  plateAlt: string;
+  /** Homepage hero: large right image, slate wash over its left edge. */
+  hero?: boolean;
+}
+
+const { eyebrow, title, lead, seal, plate, plateAlt, hero = false } = Astro.props;
+---
+
+<section class:list={['landing', { 'landing-hero': hero }]} aria-labelledby="landing-heading">
+  <div class="landing-stage">
+    <div class="landing-copy">
+      <img class="landing-seal" src={seal.src} width={seal.width} height={seal.height} alt="" />
+      {eyebrow && <p class="landing-eyebrow">{eyebrow}</p>}
+      <img class="landing-rule" src={rule.src} width={rule.width} height={rule.height} alt="" />
+      <h1 id="landing-heading">{title}</h1>
+      <p class="landing-lead">{lead}</p>
+      {
+        Astro.slots.has('default') && (
+          <div class="landing-body">
+            <slot />
+          </div>
+        )
+      }
+    </div>
+    <figure class="landing-plate">
+      <img
+        src={plate.src}
+        width={plate.width}
+        height={plate.height}
+        alt={plateAlt}
+        decoding="async"
+      />
+    </figure>
+  </div>
+  {
+    Astro.slots.has('after') && (
+      <div class="landing-after">
+        <slot name="after" />
+      </div>
+    )
+  }
+  {
+    Astro.slots.has('essay') && (
+      <div class="landing-essay">
+        <img
+          class="essay-corner"
+          src={corner.src}
+          width={corner.width}
+          height={corner.height}
+          alt=""
+        />
+        <slot name="essay" />
+      </div>
+    )
+  }
+</section>

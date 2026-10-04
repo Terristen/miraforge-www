@@ -1,0 +1,228 @@
+---
+import sealBook from '../../../design/reference/widgets/wax_book.png';
+import sealLore from '../../../design/reference/widgets/wax_assets.png';
+import sealTimeline from '../../../design/reference/widgets/wax_timeline.png';
+import sealPlot from '../../../design/reference/widgets/wax_nodes.png';
+import sealGraph from '../../../design/reference/widgets/wax_graph.png';
+import sealLetters from '../../../design/reference/widgets/wax_letters.png';
+import sealArchivist from '../../../design/reference/widgets/wax_archivist.png';
+import sealKey from '../../../design/reference/widgets/wax_key.png';
+import sealPen from '../../../design/reference/widgets/wax_pen.png';
+import sealTree from '../../../design/reference/widgets/wax_tree.png';
+import sceneManuscript from '../../../design/reference/features/manuscript.png';
+import sceneLore from '../../../design/reference/features/lore.png';
+import sceneTimeline from '../../../design/reference/features/timeline.png';
+import scenePlot from '../../../design/reference/features/plot.png';
+import sceneGraph from '../../../design/reference/features/graph.png';
+import sceneKnowledge from '../../../design/reference/features/knowledge.png';
+import sceneArchivist from '../../../design/reference/features/archivist.png';
+import sceneExports from '../../../design/reference/features/exports.png';
+import sceneEditing from '../../../design/reference/features/editing.png';
+import sceneBooks from '../../../design/reference/features/multiple_books.png';
+import navPrev from '../../../design/reference/widgets/round_left.png';
+import navNext from '../../../design/reference/widgets/round_right.png';
+
+const features = [
+  {
+    seal: sealBook,
+    scene: sceneManuscript,
+    label: 'Manuscript',
+    title: 'Write and revise with focus',
+    body: 'Draft, reorganize, and refine your work from first line to final structure.',
+    crop: '80% 66%',
+  },
+  {
+    seal: sealLore,
+    scene: sceneLore,
+    label: 'Lore',
+    title: 'Keep the world with the writing',
+    body: 'Characters, places, research, and the other material around your work stay together in one Archive.',
+    crop: '84% 48%',
+  },
+  {
+    seal: sealTimeline,
+    scene: sceneTimeline,
+    label: 'Timeline',
+    title: 'Keep the story in order',
+    body: 'See events in sequence and keep the shape of the work in view.',
+    crop: '86% 44%',
+  },
+  {
+    seal: sealPlot,
+    scene: scenePlot,
+    label: 'Plot Maps',
+    title: 'See how the plot holds together',
+    body: 'Map scenes, turns, branches, and threads across the structure of your work.',
+    crop: '76% 58%',
+  },
+  {
+    seal: sealGraph,
+    scene: sceneGraph,
+    label: 'Knowledge Graph',
+    title: 'Follow what connects',
+    body: 'Explore the relationships linking everything in your Archive.',
+    crop: '70% 48%',
+  },
+  {
+    seal: sealLetters,
+    scene: sceneBooks,
+    label: 'Multi-Modal Writing',
+    title: 'Write in the form that fits',
+    body: 'Novels, nonfiction, screenplays, stage plays, research, and more within one authoring environment.',
+    crop: '74% 52%',
+  },
+  {
+    seal: sealArchivist,
+    scene: sceneArchivist,
+    label: 'The Archivist',
+    title: 'Keep complex knowledge organized',
+    body: 'AI-assisted curation helps organize, connect, and surface the knowledge in your Archive.',
+    crop: '72% 44%',
+  },
+  {
+    seal: sealKey,
+    scene: sceneKnowledge,
+    label: 'Agent Tooling',
+    title: 'Put your Archive to work',
+    body: 'Let compatible AI agents securely use Miraforge tools and knowledge to help manage your work.',
+    crop: '76% 50%',
+  },
+  {
+    seal: sealPen,
+    scene: sceneEditing,
+    label: 'Camera Scripta',
+    title: 'Create, edit, transform',
+    body: 'Purpose-built AI writing tools that assist the process while keeping you in control.',
+    crop: '78% 58%',
+  },
+  {
+    seal: sealTree,
+    scene: sceneExports,
+    label: 'Custom Exports',
+    title: 'Publish it your way',
+    body: 'Shape your work for PDF, eBook, Word, and other output formats when it is ready to leave the Archive.',
+    crop: '73% 48%',
+  },
+];
+---
+
+<section class="features-band" id="features" aria-roledescription="carousel" aria-label="Studio features">
+  <div class="features-bar">
+    <button class="features-nav" type="button" data-features-dir="-1" aria-label="Previous feature">
+      <img src={navPrev.src} width={navPrev.width} height={navPrev.height} alt="" />
+    </button>
+    <div class="features" tabindex="0">
+      {
+        features.map((feature) => (
+          <article class="feature">
+            <div class="feature-body">
+              <img class="feature-seal" src={feature.seal.src} width={feature.seal.width} height={feature.seal.height} alt="" />
+              <p class="feature-label">{feature.label}</p>
+              <h2 class="feature-title">{feature.title}</h2>
+              <p class="feature-copy">{feature.body}</p>
+            </div>
+            <img
+              class="feature-scene"
+              src={feature.scene.src}
+              width={feature.scene.width}
+              height={feature.scene.height}
+              alt=""
+              style={`object-position: ${feature.crop}`}
+            />
+          </article>
+        ))
+      }
+    </div>
+    <button class="features-nav" type="button" data-features-dir="1" aria-label="Next feature">
+      <img src={navNext.src} width={navNext.width} height={navNext.height} alt="" />
+    </button>
+  </div>
+</section>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.features-band').forEach((band) => {
+    const scroller = band.querySelector('.features');
+    const prev = band.querySelector('[data-features-dir="-1"]');
+    const next = band.querySelector('[data-features-dir="1"]');
+    if (!scroller || !prev || !next || scroller.dataset.ready === 'true') return;
+    scroller.dataset.ready = 'true';
+
+    const originals = [...scroller.children];
+    const count = originals.length;
+    const decorate = (node) => {
+      node.setAttribute('aria-hidden', 'true');
+      node.inert = true;
+      return node;
+    };
+    scroller.prepend(...originals.map((card) => decorate(card.cloneNode(true))));
+    scroller.append(...originals.map((card) => decorate(card.cloneNode(true))));
+
+    const step = () => {
+      const card = scroller.querySelector('.feature');
+      const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    let locking = false;
+    const jump = (left) => {
+      locking = true;
+      const snap = scroller.style.scrollSnapType;
+      scroller.style.scrollSnapType = 'none';
+      scroller.scrollLeft = left;
+      scroller.style.scrollSnapType = snap;
+      locking = false;
+    };
+
+    const normalize = () => {
+      if (locking) return;
+      const distance = step();
+      if (!distance) return;
+      const index = Math.round(scroller.scrollLeft / distance);
+      if (index < count) jump(scroller.scrollLeft + distance * count);
+      else if (index >= count * 2) jump(scroller.scrollLeft - distance * count);
+    };
+
+    const move = (direction) => {
+      const distance = step();
+      if (!distance) return;
+      scroller.scrollBy({ left: direction * distance, behavior: reduced ? 'auto' : 'smooth' });
+    };
+
+    const place = () => {
+      const distance = step();
+      if (!distance) {
+        requestAnimationFrame(place);
+        return;
+      }
+      jump(distance * count);
+    };
+    place();
+
+    if ('onscrollend' in window) scroller.addEventListener('scrollend', normalize);
+    else {
+      let timer = 0;
+      scroller.addEventListener('scroll', () => {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(normalize, 140);
+      });
+    }
+
+    prev.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    scroller.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+      event.preventDefault();
+      move(event.key === 'ArrowRight' ? 1 : -1);
+    });
+
+    window.addEventListener('resize', () => {
+      const distance = step();
+      if (!distance) return;
+      const index = Math.round(scroller.scrollLeft / distance);
+      const slot = ((index % count) + count) % count;
+      jump((slot + count) * distance);
+    });
+  });
+</script>

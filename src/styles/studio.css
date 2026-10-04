@@ -1,0 +1,124 @@
+.landing-hero .landing-body {
+  max-width: 36rem;
+  color: var(--mf-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.studio-story {
+  width: min(72rem, calc(100% - (var(--mf-gutter) * 2)));
+  margin-inline: auto;
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+}
+
+.studio-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 3.25rem);
+  align-items: center;
+  margin-top: clamp(3.25rem, 7vw, 5.75rem);
+}
+
+.studio-block.is-flip {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.studio-block.is-flip .studio-copy {
+  order: 2;
+}
+
+.studio-block.is-text {
+  display: block;
+  max-width: 42rem;
+}
+
+.studio-copy h2,
+.studio-close h2 {
+  margin: 0 0 0.9rem;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-display);
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+  font-weight: var(--mf-weight);
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.studio-copy p,
+.studio-close p {
+  margin: 0 0 1rem;
+  color: var(--mf-ink);
+  font-family: var(--mf-font-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.studio-figure {
+  margin: 0;
+}
+
+.studio-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--mf-accent);
+  box-shadow:
+    0 16px 36px rgb(0 0 0 / 0.48),
+    0 2px 8px rgb(0 0 0 / 0.35);
+}
+
+.studio-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--mf-accent);
+  font-family: var(--mf-font-button);
+  font-size: 0.58rem;
+  font-weight: var(--mf-weight-bold);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.studio-cluster li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.65rem;
+  color: color-mix(in srgb, var(--mf-accent) 55%, var(--mf-muted));
+}
+
+.studio-copy .studio-callout,
+.studio-copy .studio-credo {
+  margin: 1.4rem 0 0;
+  color: color-mix(in srgb, var(--mf-ink) 35%, white);
+  font-family: var(--mf-font-display);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+}
+
+.studio-block.studio-close {
+  margin-top: clamp(3.5rem, 8vw, 6rem);
+}
+
+.studio-close .landing-actions {
+  margin-top: 1.5rem;
+}
+
+.studio-close .btn:disabled {
+  opacity: 0.38;
+  pointer-events: none;
+  cursor: default;
+  filter: grayscale(0.35);
+}
+
+@media (max-width: 900px) {
+  .studio-block,
+  .studio-block.is-flip {
+    grid-template-columns: 1fr;
+  }
+
+  .studio-block.is-flip .studio-copy {
+    order: 0;
+  }
+}

@@ -1,11 +1,22 @@
 ---
+import seal from '../../design/reference/widgets/wax_key.png';
+import plate from '../../design/reference/orrery.png';
+import Landing from '../components/Landing.astro';
 import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Page not found" description="That page is not on miraforge.com.">
-  <article class="sheet">
-    <h1>Page not found</h1>
-    <p>That page is not on this site.</p>
-    <p><a href="/">Return home</a>.</p>
-  </article>
+  <Landing
+    eyebrow="Not on this site"
+    title="That page is not here."
+    lead="The address does not match a page on miraforge.com."
+    seal={seal}
+    plate={plate}
+    plateAlt=""
+  >
+    <div class="landing-actions">
+      <a class="btn btn-primary btn-brass" href="/">Return home</a>
+      <a class="btn btn-brass-inverse" href="/studio/">Explore Studio</a>
+    </div>
+  </Landing>
 </Base>

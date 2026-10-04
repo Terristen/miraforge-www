@@ -1,0 +1,12 @@
+---
+# cPanel → Git Version Control → Deploy HEAD.
+# Clone this repository outside the document root. These tasks build the
+# static site and copy it into the primary domain's public_html.
+# If miraforge.com uses a different document root, change DEPLOYPATH.
+# The hosting account needs Node.js 24 available as `npm` on the deploy PATH.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - npm ci
+    - npm run build
+    - /bin/cp -a dist/. $DEPLOYPATH
