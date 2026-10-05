@@ -40,6 +40,6 @@ jobs:
           set ftp:ssl-protect-data true;
           set ssl:verify-certificate true;
           open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$FTP_HOST\";
-          mirror --reverse --verbose dist/ /;
+          mirror --reverse --delete --verbose dist/ /;
           bye
           "
