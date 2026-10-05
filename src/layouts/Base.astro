@@ -12,7 +12,11 @@ interface Props {
 
 const { title, description, home = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const pageTitle = title === 'Miraforge' ? title : `${title} · Miraforge`;
+const pageTitle = home
+  ? 'Miraforge Studio — a desktop workspace for writers'
+  : title === 'Miraforge'
+    ? title
+    : `${title} · Miraforge`;
 const image = new URL('/og.jpg', Astro.site);
 const siteUrl = new URL('/', Astro.site).href;
 const robots = noindex ? 'noindex, nofollow' : 'index, follow';
@@ -55,8 +59,12 @@ const structuredData = {
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#1a1c1f" />
     <link rel="canonical" href={canonical.href} />
-    <link rel="icon" href="/favicon.jpg" type="image/jpeg" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon.jpg" type="image/jpeg" sizes="1024x1024" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
