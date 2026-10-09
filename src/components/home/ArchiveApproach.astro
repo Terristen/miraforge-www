@@ -1,12 +1,15 @@
 ---
-import pieceArchive from '../../../design/reference/archive/archive.png';
-import pieceCharacters from '../../../design/reference/archive/characters.png';
-import pieceManuscript from '../../../design/reference/archive/manuscript.png';
-import pieceNotes from '../../../design/reference/archive/notes.png';
-import piecePlaces from '../../../design/reference/archive/places.png';
-import pieceTimeline from '../../../design/reference/archive/timelines.png';
 import orrery from '../../../design/reference/orrery.png';
 import rule from '../../../design/reference/widgets/horizontal_accent.png';
+
+const slips = [
+  { id: 'archive_archive', width: 640, height: 384, alt: 'Archive', className: 'fragment-archive' },
+  { id: 'archive_manuscript', width: 640, height: 366, alt: 'Manuscript', className: 'fragment-manuscript', orbit: 'manuscript' },
+  { id: 'archive_characters', width: 640, height: 512, alt: 'Characters', className: 'fragment-characters', orbit: 'characters' },
+  { id: 'archive_notes', width: 640, height: 366, alt: 'Notes', className: 'fragment-notes', orbit: 'notes' },
+  { id: 'archive_places', width: 640, height: 427, alt: 'Places', className: 'fragment-places', orbit: 'places' },
+  { id: 'archive_timelines', width: 640, height: 213, alt: 'Timeline', className: 'fragment-timeline', orbit: 'timeline' },
+];
 ---
 
 <section class="approach" aria-labelledby="approach-heading">
@@ -34,24 +37,22 @@ import rule from '../../../design/reference/widgets/horizontal_accent.png';
           height={orrery.height}
           alt=""
         />
-        <p class="fragment fragment-archive">
-          <img src={pieceArchive.src} width={pieceArchive.width} height={pieceArchive.height} alt="Archive" />
-        </p>
-        <p class="fragment fragment-manuscript" data-orbit="manuscript">
-          <img src={pieceManuscript.src} width={pieceManuscript.width} height={pieceManuscript.height} alt="Manuscript" />
-        </p>
-        <p class="fragment fragment-characters" data-orbit="characters">
-          <img src={pieceCharacters.src} width={pieceCharacters.width} height={pieceCharacters.height} alt="Characters" />
-        </p>
-        <p class="fragment fragment-notes" data-orbit="notes">
-          <img src={pieceNotes.src} width={pieceNotes.width} height={pieceNotes.height} alt="Notes" />
-        </p>
-        <p class="fragment fragment-places" data-orbit="places">
-          <img src={piecePlaces.src} width={piecePlaces.width} height={piecePlaces.height} alt="Places" />
-        </p>
-        <p class="fragment fragment-timeline" data-orbit="timeline">
-          <img src={pieceTimeline.src} width={pieceTimeline.width} height={pieceTimeline.height} alt="Timeline" />
-        </p>
+        {
+          slips.map((slip) => (
+            <p class:list={['fragment', slip.className]} data-orbit={slip.orbit}>
+              <picture>
+                <source type="image/avif" srcset={`/assets/optimized/${slip.id}__640w.avif`} />
+                <source type="image/webp" srcset={`/assets/optimized/${slip.id}__640w.webp`} />
+                <img
+                  src={`/assets/optimized/${slip.id}__640w.webp`}
+                  width={slip.width}
+                  height={slip.height}
+                  alt={slip.alt}
+                />
+              </picture>
+            </p>
+          ))
+        }
       </div>
     </figure>
   </div>

@@ -563,5 +563,149 @@
         "webp"
       ]
     }
+  ],
+  "feature_manuscript": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_lore": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_timeline": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_plot": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_graph": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_knowledge": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_archivist": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_exports": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_editing": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "feature_multiple_books": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_archive": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_characters": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_manuscript": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_notes": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_places": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
+  ],
+  "archive_timelines": [
+    {
+      "width": 640,
+      "formats": [
+        "avif",
+        "webp"
+      ]
+    }
   ]
 }

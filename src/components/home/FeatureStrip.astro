@@ -1,103 +1,100 @@
 ---
-import sealBook from '../../../design/reference/widgets/wax_book.png';
-import sealLore from '../../../design/reference/widgets/wax_assets.png';
-import sealTimeline from '../../../design/reference/widgets/wax_timeline.png';
-import sealPlot from '../../../design/reference/widgets/wax_nodes.png';
-import sealGraph from '../../../design/reference/widgets/wax_graph.png';
-import sealLetters from '../../../design/reference/widgets/wax_letters.png';
-import sealArchivist from '../../../design/reference/widgets/wax_archivist.png';
-import sealKey from '../../../design/reference/widgets/wax_key.png';
-import sealPen from '../../../design/reference/widgets/wax_pen.png';
-import sealTree from '../../../design/reference/widgets/wax_tree.png';
-import sceneManuscript from '../../../design/reference/features/manuscript.png';
-import sceneLore from '../../../design/reference/features/lore.png';
-import sceneTimeline from '../../../design/reference/features/timeline.png';
-import scenePlot from '../../../design/reference/features/plot.png';
-import sceneGraph from '../../../design/reference/features/graph.png';
-import sceneKnowledge from '../../../design/reference/features/knowledge.png';
-import sceneArchivist from '../../../design/reference/features/archivist.png';
-import sceneExports from '../../../design/reference/features/exports.png';
-import sceneEditing from '../../../design/reference/features/editing.png';
-import sceneBooks from '../../../design/reference/features/multiple_books.png';
-import navPrev from '../../../design/reference/widgets/round_left.png';
-import navNext from '../../../design/reference/widgets/round_right.png';
-
 const features = [
   {
-    seal: sealBook,
-    scene: sceneManuscript,
+    seal: '/assets/optimized/wax_book__200w.webp',
+    scene: 'feature_manuscript',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Manuscript',
     title: 'Write and revise with focus',
     body: 'Draft, reorganize, and refine your work from first line to final structure.',
     crop: '80% 66%',
   },
   {
-    seal: sealLore,
-    scene: sceneLore,
+    seal: '/assets/optimized/wax_assets__200w.webp',
+    scene: 'feature_lore',
+    sceneWidth: 640,
+    sceneHeight: 360,
     label: 'Lore',
     title: 'Keep the world with the writing',
     body: 'Characters, places, research, and the other material around your work stay together in one Archive.',
     crop: '84% 48%',
   },
   {
-    seal: sealTimeline,
-    scene: sceneTimeline,
+    seal: '/assets/optimized/wax_timeline__200w.webp',
+    scene: 'feature_timeline',
+    sceneWidth: 640,
+    sceneHeight: 360,
     label: 'Timeline',
     title: 'Keep the story in order',
     body: 'See events in sequence and keep the shape of the work in view.',
     crop: '86% 44%',
   },
   {
-    seal: sealPlot,
-    scene: scenePlot,
+    seal: '/assets/optimized/wax_nodes__200w.webp',
+    scene: 'feature_plot',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Plot Maps',
     title: 'See how the plot holds together',
     body: 'Map scenes, turns, branches, and threads across the structure of your work.',
     crop: '76% 58%',
   },
   {
-    seal: sealGraph,
-    scene: sceneGraph,
+    seal: '/assets/optimized/wax_graph__200w.webp',
+    scene: 'feature_graph',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Knowledge Graph',
     title: 'Follow what connects',
     body: 'Explore the relationships linking everything in your Archive.',
     crop: '70% 48%',
   },
   {
-    seal: sealLetters,
-    scene: sceneBooks,
+    seal: '/assets/optimized/wax_letters__200w.webp',
+    scene: 'feature_multiple_books',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Multi-Modal Writing',
     title: 'Write in the form that fits',
     body: 'Novels, nonfiction, screenplays, stage plays, research, and more within one authoring environment.',
     crop: '74% 52%',
   },
   {
-    seal: sealArchivist,
-    scene: sceneArchivist,
+    seal: '/assets/optimized/wax_archivist__200w.webp',
+    scene: 'feature_archivist',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'The Archivist',
     title: 'Keep complex knowledge organized',
     body: 'AI-assisted curation helps organize, connect, and surface the knowledge in your Archive.',
     crop: '72% 44%',
   },
   {
-    seal: sealKey,
-    scene: sceneKnowledge,
+    seal: '/assets/optimized/wax_key__200w.webp',
+    scene: 'feature_knowledge',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Agent Tooling',
     title: 'Put your Archive to work',
     body: 'Let compatible AI agents securely use Miraforge tools and knowledge to help manage your work.',
     crop: '76% 50%',
   },
   {
-    seal: sealPen,
-    scene: sceneEditing,
+    seal: '/assets/optimized/wax_pen__200w.webp',
+    scene: 'feature_editing',
+    sceneWidth: 640,
+    sceneHeight: 360,
     label: 'Camera Scripta',
     title: 'Create, edit, transform',
     body: 'Purpose-built AI writing tools that assist the process while keeping you in control.',
     crop: '78% 58%',
   },
   {
-    seal: sealTree,
-    scene: sceneExports,
+    seal: '/assets/optimized/wax_tree__200w.webp',
+    scene: 'feature_exports',
+    sceneWidth: 640,
+    sceneHeight: 480,
     label: 'Custom Exports',
     title: 'Publish it your way',
     body: 'Shape your work for PDF, eBook, Word, and other output formats when it is ready to leave the Archive.',
@@ -109,32 +106,35 @@ const features = [
 <section class="features-band" id="features" aria-roledescription="carousel" aria-label="Studio features">
   <div class="features-bar">
     <button class="features-nav" type="button" data-features-dir="-1" aria-label="Previous feature">
-      <img src={navPrev.src} width={navPrev.width} height={navPrev.height} alt="" />
+      <img src="/assets/optimized/round_left__200w.webp" width="200" height="200" alt="" />
     </button>
     <div class="features" tabindex="0">
       {
         features.map((feature) => (
           <article class="feature">
             <div class="feature-body">
-              <img class="feature-seal" src={feature.seal.src} width={feature.seal.width} height={feature.seal.height} alt="" />
+              <img class="feature-seal" src={feature.seal} width="200" height="200" alt="" />
               <p class="feature-label">{feature.label}</p>
               <h2 class="feature-title">{feature.title}</h2>
               <p class="feature-copy">{feature.body}</p>
             </div>
-            <img
-              class="feature-scene"
-              src={feature.scene.src}
-              width={feature.scene.width}
-              height={feature.scene.height}
-              alt=""
-              style={`object-position: ${feature.crop}`}
-            />
+            <picture class="feature-scene">
+              <source type="image/avif" srcset={`/assets/optimized/${feature.scene}__640w.avif`} />
+              <source type="image/webp" srcset={`/assets/optimized/${feature.scene}__640w.webp`} />
+              <img
+                src={`/assets/optimized/${feature.scene}__640w.webp`}
+                width={feature.sceneWidth}
+                height={feature.sceneHeight}
+                alt=""
+                style={`object-position: ${feature.crop}`}
+              />
+            </picture>
           </article>
         ))
       }
     </div>
     <button class="features-nav" type="button" data-features-dir="1" aria-label="Next feature">
-      <img src={navNext.src} width={navNext.width} height={navNext.height} alt="" />
+      <img src="/assets/optimized/round_right__200w.webp" width="200" height="200" alt="" />
     </button>
   </div>
 </section>
