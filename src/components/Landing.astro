@@ -8,20 +8,27 @@ interface Props {
   eyebrow?: string;
   title: string;
   lead: string;
-  seal: ImageMetadata;
-  plate: ImageMetadata;
+  seal: string | ImageMetadata;
+  plate: string | ImageMetadata;
   plateAlt: string;
   /** Homepage hero: large right image, slate wash over its left edge. */
   hero?: boolean;
 }
 
 const { eyebrow, title, lead, seal, plate, plateAlt, hero = false } = Astro.props;
----
 
+const resolvedSeal = typeof seal === 'string' ? seal : seal.src;
+const resolvedPlate = typeof plate === 'string' ? plate : plate.src;
+---
 <section class:list={['landing', { 'landing-hero': hero }]} aria-labelledby="landing-heading">
   <div class="landing-stage">
     <div class="landing-copy">
-      <img class="landing-seal" src={seal.src} width={seal.width} height={seal.height} alt="" />
+      <img
+        class="landing-seal"
+        src={resolvedSeal}
+        width={typeof seal === 'object' ? seal.width : undefined}
+        height={typeof seal === 'object' ? seal.height : undefined}
+        alt="" />
       {eyebrow && <p class="landing-eyebrow">{eyebrow}</p>}
       <img class="landing-rule" src={rule.src} width={rule.width} height={rule.height} alt="" />
       <h1 id="landing-heading">{title}</h1>
@@ -36,9 +43,9 @@ const { eyebrow, title, lead, seal, plate, plateAlt, hero = false } = Astro.prop
     </div>
     <figure class="landing-plate">
       <img
-        src={plate.src}
-        width={plate.width}
-        height={plate.height}
+        src={resolvedPlate}
+        width={typeof plate === 'object' ? plate.width : undefined}
+        height={typeof plate === 'object' ? plate.height : undefined}
         alt={plateAlt}
         decoding="async"
       />
@@ -66,3 +73,4 @@ const { eyebrow, title, lead, seal, plate, plateAlt, hero = false } = Astro.prop
     )
   }
 </section>
+

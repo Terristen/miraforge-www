@@ -1,12 +1,5 @@
 ---
-import seal from '../../design/reference/widgets/wax_book.png';
-import plate from '../../design/reference/heros/CandlelightStudioDesktop.png';
-import everything from '../../design/reference/heros/stilllife_everything.png';
-import planning from '../../design/reference/heros/stilllife_planning.png';
-import research from '../../design/reference/heros/stilllife_research.png';
-import notes from '../../design/reference/heros/stillife_notes.png';
-import ai from '../../design/reference/heros/stilllife_ai_section.png';
-import creating from '../../design/reference/heros/stilllife_keep_creating.png';
+// Optimized assets are now referenced via public paths in /assets/optimized/
 import Landing from '../components/Landing.astro';
 import Base from '../layouts/Base.astro';
 import '../styles/studio.css';
@@ -23,8 +16,8 @@ const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph
     eyebrow="Miraforge Studio"
     title="A creative workspace built around the work itself"
     lead="Write, organize, explore, and develop complex creative projects without scattering them across disconnected tools."
-    seal={seal}
-    plate={plate}
+    seal="/assets/optimized/wax_book__orig.webp"
+    plate="/assets/optimized/CandlelightStudioDesktop__1920w.webp"
     plateAlt="An open manuscript on a worktable, surrounded by maps, index cards, drafting tools, and bound volumes."
   >
     <p>
@@ -52,12 +45,17 @@ const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph
             </p>
           </div>
           <figure class="studio-figure">
-            <img
-              src={everything.src}
-              width={everything.width}
-              height={everything.height}
-              alt="An open folio surrounded by character studies, a map, a timeline, and a web of relationships."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stilllife_everything__640w.avif 640w, /assets/optimized/stilllife_everything__1024w.avif 1024w, /assets/optimized/stilllife_everything__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stilllife_everything__640w.webp 640w, /assets/optimized/stilllife_everything__1024w.webp 1024w, /assets/optimized/stilllife_everything__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stilllife_everything__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="An open folio surrounded by character studies, a map, a timeline, and a web of relationships."
+                            loading="lazy"
+                          />
+                        </picture>
             <ul class="studio-cluster">
               {belongs.map((name) => <li>{name}</li>)}
             </ul>
@@ -66,12 +64,17 @@ const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph
 
         <section class="studio-block is-flip">
           <figure class="studio-figure">
-            <img
-              src={notes.src}
-              width={notes.width}
-              height={notes.height}
-              alt="A desk covered in handwritten notes, index cards, and sketches."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stillife_notes__640w.avif 640w, /assets/optimized/stillife_notes__1024w.avif 1024w, /assets/optimized/stillife_notes__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stillife_notes__640w.webp 640w, /assets/optimized/stillife_notes__1024w.webp 1024w, /assets/optimized/stillife_notes__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stillife_notes__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="A desk covered in handwritten notes, index cards, and sketches." loading="lazy"
+                            loading="lazy"
+                          />
+                        </picture>
           </figure>
           <div class="studio-copy">
             <h2>Structure without forcing a method</h2>
@@ -105,23 +108,33 @@ const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph
             <p class="studio-callout">One Archive. One body of work. Many ways to understand it.</p>
           </div>
           <figure class="studio-figure">
-            <img
-              src={research.src}
-              width={research.width}
-              height={research.height}
-              alt="An open research volume with a card file, maps, and connected reference cards."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stilllife_research__640w.avif 640w, /assets/optimized/stilllife_research__1024w.avif 1024w, /assets/optimized/stilllife_research__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stilllife_research__640w.webp 640w, /assets/optimized/stilllife_research__1024w.webp 1024w, /assets/optimized/stilllife_research__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stilllife_research__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="An open research volume with a card file, maps, and connected reference cards."
+                            loading="lazy"
+                          />
+                        </picture>
           </figure>
         </section>
 
         <section class="studio-block is-flip">
           <figure class="studio-figure">
-            <img
-              src={ai.src}
-              width={ai.width}
-              height={ai.height}
-              alt="An open ledger of connected sketches, with a card file and drafting tools beside it."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stilllife_ai_section__640w.avif 640w, /assets/optimized/stilllife_ai_section__1024w.avif 1024w, /assets/optimized/stilllife_ai_section__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stilllife_ai_section__640w.webp 640w, /assets/optimized/stilllife_ai_section__1024w.webp 1024w, /assets/optimized/stilllife_ai_section__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stilllife_ai_section__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="An open ledger of connected sketches, with a card file and drafting tools beside it."
+                            loading="lazy"
+                          />
+                        </picture>
           </figure>
           <div class="studio-copy">
             <h2>AI is optional. Useful is mandatory.</h2>
@@ -153,23 +166,33 @@ const belongs = ['Manuscript', 'Lore', 'Timeline', 'Plot Maps', 'Knowledge Graph
             <p>Studio is being designed with that broader future in mind.</p>
           </div>
           <figure class="studio-figure">
-            <img
-              src={planning.src}
-              width={planning.width}
-              height={planning.height}
-              alt="An open planning book with scene sketches, loose outlines, and stacks of reference volumes."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stilllife_planning__640w.avif 640w, /assets/optimized/stilllife_planning__1024w.avif 1024w, /assets/optimized/stilllife_planning__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stilllife_planning__640w.webp 640w, /assets/optimized/stilllife_planning__1024w.webp 1024w, /assets/optimized/stilllife_planning__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stilllife_planning__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="An open planning book with scene sketches, loose outlines, and stacks of reference volumes."
+                            loading="lazy"
+                          />
+                        </picture>
           </figure>
         </section>
 
         <section class="studio-block is-flip studio-close">
           <figure class="studio-figure">
-            <img
-              src={creating.src}
-              width={creating.width}
-              height={creating.height}
-              alt="A closed journal with a compass rose, resting on maps, sketches, and bound volumes."
-            />
+            <picture>
+                          <source type="image/avif" srcset="/assets/optimized/stilllife_keep_creating__640w.avif 640w, /assets/optimized/stilllife_keep_creating__1024w.avif 1024w, /assets/optimized/stilllife_keep_creating__1920w.avif 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <source type="image/webp" srcset="/assets/optimized/stilllife_keep_creating__640w.webp 640w, /assets/optimized/stilllife_keep_creating__1024w.webp 1024w, /assets/optimized/stilllife_keep_creating__1920w.webp 1920w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px">
+                          <img
+                            src="/assets/optimized/stilllife_keep_creating__1024w.webp"
+                            width="1024"
+                            height="768"
+                            alt="A closed journal with a compass rose, resting on maps, sketches, and bound volumes."
+                            loading="lazy"
+                          />
+                        </picture>
           </figure>
           <div class="studio-copy">
             <h2>Keep the work together. Keep creating.</h2>

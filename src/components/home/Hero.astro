@@ -1,7 +1,6 @@
 ---
-import heroShot from '../../../design/reference/heros/hero_3.png';
+// Remove the high-res source import
 ---
-
 <section class="hero" aria-labelledby="hero-heading">
   <div class="hero-stage">
   <div class="hero-copy">
@@ -24,15 +23,26 @@ import heroShot from '../../../design/reference/heros/hero_3.png';
   </div>
   <div class="hero-visual">
     <figure class="hero-plate">
-      <img
-        src={heroShot.src}
-        width={heroShot.width}
-        height={heroShot.height}
-        alt="Miraforge Studio open on the War Pass Archive. The manuscript editor is beside the lore list and archive files."
-        fetchpriority="high"
-        decoding="async"
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcset="/assets/optimized/hero_3__640w.avif 640w, /assets/optimized/hero_3__1024w.avif 1024w, /assets/optimized/hero_3__1920w.avif 1920w"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+        />
+        <source
+          type="image/webp"
+          srcset="/assets/optimized/hero_3__640w.webp 640w, /assets/optimized/hero_3__1024w.webp 1024w, /assets/optimized/hero_3__1920w.webp 1920w"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+        />
+        <img
+          src="/assets/optimized/hero_3__1920w.webp"
+          alt="Miraforge Studio open on the War Pass Archive. The manuscript editor is beside the lore list and archive files."
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
     </figure>
   </div>
   </div>
 </section>
+
