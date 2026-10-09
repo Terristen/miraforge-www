@@ -14,7 +14,7 @@ const ASSET_CONFIG = {
       { width: 1024, formats: ['avif', 'webp'] },
       { width: 640, formats: ['avif', 'webp'] },
     ],
-    quality: { avif: 65, webp: 80 }
+    quality: { avif: 50, webp: 75 }
   },
   textures: {
     folder: '',
@@ -24,8 +24,8 @@ const ASSET_CONFIG = {
   },
   widgets: {
     folder: 'widgets',
-    variants: [{ formats: ['webp'] }],
-    lossless: true
+    variants: [{ width: 200, formats: ['webp'] }],
+    quality: { webp: 80 }
   }
 };
 
@@ -40,12 +40,8 @@ async function processAsset(sourcePath, variant, config, assetId) {
     const currentPath = path.join(OUTPUT_ROOT, filename);
     let pipeline = sharp(sourcePath).resize(variant.width || null);
 
-    if (config.lossless) {
-      if (format === 'webp') pipeline = pipeline.webp({ lossless: true });
-    } else {
       if (format === 'avif') pipeline = pipeline.avif({ quality: config.quality?.avif || 60 });
       if (format === 'webp') pipeline = pipeline.webp({ quality: config.quality?.webp || 80 });
-    }
     await pipeline.toFile(currentPath);
   }
   console.log(`Processed ${assetId} in ${Math.round(performance.now() - start)}ms`);
@@ -94,3 +90,4 @@ async function run() {
 }
 
 run().catch(console.error);
+
